@@ -1,18 +1,16 @@
-package com.example.avjindersinghsekhon.minimaltodo.About;
+package com.example.avjindersinghsekhon.minimaltodo.UI.About;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.avjindersinghsekhon.minimaltodo.BuildConfig;
-import com.example.avjindersinghsekhon.minimaltodo.MinimalToDo;
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.AppDefaultFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BaseFragment;
 import com.example.avjindersinghsekhon.minimaltodo.R;
 
-public class AboutFragment extends AppDefaultFragment implements AboutContract.View {
+public class AboutFragment extends BaseFragment implements AboutContract.View {
 
     private View view;
     private AboutContract.Presenter presenter;

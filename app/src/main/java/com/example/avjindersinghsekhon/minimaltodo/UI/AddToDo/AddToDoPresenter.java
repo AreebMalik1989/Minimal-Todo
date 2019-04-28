@@ -1,4 +1,4 @@
-package com.example.avjindersinghsekhon.minimaltodo.AddToDo;
+package com.example.avjindersinghsekhon.minimaltodo.UI.AddToDo;
 
 public class AddToDoPresenter implements AddToDoContract.Presenter {
 
@@ -12,6 +12,11 @@ public class AddToDoPresenter implements AddToDoContract.Presenter {
 
     @Override
     public void start() {
+
+    }
+
+    @Override
+    public void hideKeyboard() {
 
     }
 }

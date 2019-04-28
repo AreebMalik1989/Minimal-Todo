@@ -1,11 +1,11 @@
-package com.example.avjindersinghsekhon.minimaltodo.AddToDo;
+package com.example.avjindersinghsekhon.minimaltodo.UI.AddToDo;
 
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.DefaultPresenter;
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.DefaultView;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BasePresenter;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BaseView;
 
 public class AddToDoContract {
 
-    public interface View extends DefaultView<Presenter> {
+    public interface View extends BaseView<Presenter> {
         String getTitleText();
         String getDescriptionText();
         boolean isDateSwitchOn();
@@ -15,7 +15,7 @@ public class AddToDoContract {
         void setReminderTextViewText(String text);
     }
 
-    public interface Presenter extends DefaultPresenter {
+    public interface Presenter extends BasePresenter {
         void hideKeyboard();
     }
 }

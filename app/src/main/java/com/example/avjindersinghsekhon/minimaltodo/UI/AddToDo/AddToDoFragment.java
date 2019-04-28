@@ -1,4 +1,4 @@
-package com.example.avjindersinghsekhon.minimaltodo.AddToDo;
+package com.example.avjindersinghsekhon.minimaltodo.UI.AddToDo;
 
 import android.animation.Animator;
 import android.content.ClipData;
@@ -31,8 +31,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.avjindersinghsekhon.minimaltodo.MinimalToDo;
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.AppDefaultFragment;
-import com.example.avjindersinghsekhon.minimaltodo.Main.MainFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BaseFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.Main.MainFragment;
 import com.example.avjindersinghsekhon.minimaltodo.R;
 import com.example.avjindersinghsekhon.minimaltodo.Utility.ToDoItem;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -48,7 +48,7 @@ import static android.app.Activity.RESULT_OK;
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static android.content.Context.MODE_PRIVATE;
 
-public class AddToDoFragment extends AppDefaultFragment implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, AddToDoContract.View {
+public class AddToDoFragment extends BaseFragment implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, AddToDoContract.View {
 
     private AddToDoContract.Presenter presenter;
 

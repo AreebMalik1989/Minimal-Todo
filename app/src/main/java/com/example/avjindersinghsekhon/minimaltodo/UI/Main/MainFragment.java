@@ -1,4 +1,4 @@
-package com.example.avjindersinghsekhon.minimaltodo.Main;
+package com.example.avjindersinghsekhon.minimaltodo.UI.Main;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -29,14 +29,14 @@ import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
-import com.example.avjindersinghsekhon.minimaltodo.About.AboutActivity;
-import com.example.avjindersinghsekhon.minimaltodo.AddToDo.AddToDoActivity;
-import com.example.avjindersinghsekhon.minimaltodo.AddToDo.AddToDoFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.About.AboutActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.AddToDo.AddToDoActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.AddToDo.AddToDoFragment;
 import com.example.avjindersinghsekhon.minimaltodo.MinimalToDo;
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.AppDefaultFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BaseFragment;
 import com.example.avjindersinghsekhon.minimaltodo.R;
-import com.example.avjindersinghsekhon.minimaltodo.Reminder.ReminderFragment;
-import com.example.avjindersinghsekhon.minimaltodo.Settings.SettingsActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.Reminder.ReminderFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.Settings.SettingsActivity;
 import com.example.avjindersinghsekhon.minimaltodo.Utility.ItemTouchHelperClass;
 import com.example.avjindersinghsekhon.minimaltodo.Utility.RecyclerViewEmptySupport;
 import com.example.avjindersinghsekhon.minimaltodo.Utility.StoreRetrieveData;
@@ -54,7 +54,7 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.content.Context.ALARM_SERVICE;
 import static android.content.Context.MODE_PRIVATE;
 
-public class MainFragment extends AppDefaultFragment {
+public class MainFragment extends BaseFragment {
     private RecyclerViewEmptySupport mRecyclerView;
     private FloatingActionButton mAddToDoItemFAB;
     private ArrayList<ToDoItem> mToDoItemsArrayList;
