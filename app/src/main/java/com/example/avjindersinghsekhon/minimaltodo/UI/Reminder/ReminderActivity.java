@@ -1,12 +1,12 @@
-package com.example.avjindersinghsekhon.minimaltodo.Reminder;
+package com.example.avjindersinghsekhon.minimaltodo.UI.Reminder;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.AppDefaultActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BaseActivity;
 import com.example.avjindersinghsekhon.minimaltodo.R;
 
-public class ReminderActivity extends AppDefaultActivity {
+public class ReminderActivity extends BaseActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

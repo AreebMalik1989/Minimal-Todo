@@ -1,6 +1,5 @@
-package com.example.avjindersinghsekhon.minimaltodo.About;
+package com.example.avjindersinghsekhon.minimaltodo.UI.About;
 
-import android.content.pm.PackageInfo;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -11,14 +10,13 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.example.avjindersinghsekhon.minimaltodo.MinimalToDo;
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.AppDefaultActivity;
-import com.example.avjindersinghsekhon.minimaltodo.Main.MainFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BaseActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.Main.MainFragment;
 import com.example.avjindersinghsekhon.minimaltodo.R;
 
-public class AboutActivity extends AppDefaultActivity {
+public class AboutActivity extends BaseActivity {
 
     private AboutContract.Presenter presenter;
     private AboutFragment fragment;

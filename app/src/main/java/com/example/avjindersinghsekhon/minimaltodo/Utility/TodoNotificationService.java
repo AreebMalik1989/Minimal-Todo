@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.example.avjindersinghsekhon.minimaltodo.R;
-import com.example.avjindersinghsekhon.minimaltodo.Reminder.ReminderActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.Reminder.ReminderActivity;
 
 import java.util.UUID;
 

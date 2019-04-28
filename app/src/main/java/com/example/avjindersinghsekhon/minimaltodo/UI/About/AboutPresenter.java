@@ -1,4 +1,4 @@
-package com.example.avjindersinghsekhon.minimaltodo.About;
+package com.example.avjindersinghsekhon.minimaltodo.UI.About;
 
 public class AboutPresenter implements AboutContract.Presenter {
 

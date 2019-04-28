@@ -1,4 +1,4 @@
-package com.example.avjindersinghsekhon.minimaltodo.Reminder;
+package com.example.avjindersinghsekhon.minimaltodo.UI.Reminder;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,9 +16,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.avjindersinghsekhon.minimaltodo.MinimalToDo;
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.AppDefaultFragment;
-import com.example.avjindersinghsekhon.minimaltodo.Main.MainActivity;
-import com.example.avjindersinghsekhon.minimaltodo.Main.MainFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BaseFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.Main.MainActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.Main.MainFragment;
 import com.example.avjindersinghsekhon.minimaltodo.R;
 import com.example.avjindersinghsekhon.minimaltodo.Utility.StoreRetrieveData;
 import com.example.avjindersinghsekhon.minimaltodo.Utility.ToDoItem;
@@ -36,7 +36,7 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class ReminderFragment extends AppDefaultFragment {
+public class ReminderFragment extends BaseFragment {
     private TextView mtoDoTextTextView;
     private Button mRemoveToDoButton;
     private MaterialSpinner mSnoozeSpinner;

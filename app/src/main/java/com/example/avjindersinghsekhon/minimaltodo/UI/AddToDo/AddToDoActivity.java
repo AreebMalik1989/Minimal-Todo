@@ -1,13 +1,13 @@
-package com.example.avjindersinghsekhon.minimaltodo.AddToDo;
+package com.example.avjindersinghsekhon.minimaltodo.UI.AddToDo;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.AppDefaultActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BaseActivity;
 import com.example.avjindersinghsekhon.minimaltodo.R;
 
-public class AddToDoActivity extends AppDefaultActivity {
+public class AddToDoActivity extends BaseActivity {
     @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

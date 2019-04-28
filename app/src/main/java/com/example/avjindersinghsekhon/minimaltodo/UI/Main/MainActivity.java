@@ -1,4 +1,4 @@
-package com.example.avjindersinghsekhon.minimaltodo.Main;
+package com.example.avjindersinghsekhon.minimaltodo.UI.Main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,12 +8,12 @@ import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.avjindersinghsekhon.minimaltodo.About.AboutActivity;
-import com.example.avjindersinghsekhon.minimaltodo.AppDefault.AppDefaultActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.About.AboutActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.BaseActivity;
 import com.example.avjindersinghsekhon.minimaltodo.R;
-import com.example.avjindersinghsekhon.minimaltodo.Settings.SettingsActivity;
+import com.example.avjindersinghsekhon.minimaltodo.UI.Settings.SettingsActivity;
 
-public class MainActivity extends AppDefaultActivity {
+public class MainActivity extends BaseActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

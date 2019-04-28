@@ -1,4 +1,4 @@
-package com.example.avjindersinghsekhon.minimaltodo.AppDefault;
+package com.example.avjindersinghsekhon.minimaltodo.UI;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class AppDefaultFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
     @Nullable
     @Override

@@ -1,4 +1,4 @@
-package com.example.avjindersinghsekhon.minimaltodo.Settings;
+package com.example.avjindersinghsekhon.minimaltodo.UI.Settings;
 
 import android.app.FragmentManager;
 import android.graphics.Color;
@@ -11,12 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.avjindersinghsekhon.minimaltodo.MinimalToDo;
-import com.example.avjindersinghsekhon.minimaltodo.Main.MainFragment;
+import com.example.avjindersinghsekhon.minimaltodo.UI.Main.MainFragment;
 import com.example.avjindersinghsekhon.minimaltodo.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
     MinimalToDo app;
+
+    SettingsContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,11 @@ public class SettingsActivity extends AppCompatActivity {
             getSupportActionBar().setHomeAsUpIndicator(backArrow);
         }
 
+        SettingsFragment fragment = new SettingsFragment();
+        presenter = new SettingsPresenter(fragment);
+
         FragmentManager fm = getFragmentManager();
-        fm.beginTransaction().replace(R.id.mycontent, new SettingsFragment()).commit();
+        fm.beginTransaction().replace(R.id.mycontent, fragment).commit();
     }
 
     @Override
