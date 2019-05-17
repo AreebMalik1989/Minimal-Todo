@@ -36,7 +36,14 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class ReminderFragment extends BaseFragment {
+public class ReminderFragment extends BaseFragment implements ReminderContract.View{
+
+    public static final String EXIT = "com.avjindersekhon.exit";
+
+    public static int SECONDARY_COLOR;
+
+    private ReminderContract.Presenter presenter;
+
     private TextView mtoDoTextTextView;
     private Button mRemoveToDoButton;
     private MaterialSpinner mSnoozeSpinner;
@@ -44,37 +51,29 @@ public class ReminderFragment extends BaseFragment {
     private StoreRetrieveData storeRetrieveData;
     private ArrayList<ToDoItem> mToDoItems;
     private ToDoItem mItem;
-    public static final String EXIT = "com.avjindersekhon.exit";
     private TextView mSnoozeTextView;
-    String theme;
-    MinimalToDo app;
+    private String theme;
+    private MinimalToDo app;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        SECONDARY_COLOR = getResources().getColor(R.color.secondary_text);
+        
         app = (MinimalToDo) getActivity().getApplication();
 
         theme = getActivity().getSharedPreferences(MainFragment.THEME_PREFERENCES, MODE_PRIVATE).getString(MainFragment.THEME_SAVED, MainFragment.LIGHTTHEME);
-        if (theme.equals(MainFragment.LIGHTTHEME)) {
-            getActivity().setTheme(R.style.CustomStyle_LightTheme);
-        } else {
-            getActivity().setTheme(R.style.CustomStyle_DarkTheme);
-        }
+        presenter.setTheme(theme);
+
         storeRetrieveData = new StoreRetrieveData(getContext(), MainFragment.FILENAME);
         mToDoItems = MainFragment.getLocallyStoredData(storeRetrieveData);
 
         ((AppCompatActivity) getActivity()).setSupportActionBar((Toolbar) view.findViewById(R.id.toolbar));
 
-
         Intent i = getActivity().getIntent();
         UUID id = (UUID) i.getSerializableExtra(TodoNotificationService.TODOUUID);
-        mItem = null;
-        for (ToDoItem toDoItem : mToDoItems) {
-            if (toDoItem.getIdentifier().equals(id)) {
-                mItem = toDoItem;
-                break;
-            }
-        }
+        mItem = presenter.findToDoItem(mToDoItems, id);
 
         snoozeOptionsArray = getResources().getStringArray(R.array.snooze_options);
 
@@ -86,14 +85,7 @@ public class ReminderFragment extends BaseFragment {
 //        mtoDoTextTextView.setBackgroundColor(item.getTodoColor());
         mtoDoTextTextView.setText(mItem.getToDoText());
 
-        if (theme.equals(MainFragment.LIGHTTHEME)) {
-            mSnoozeTextView.setTextColor(getResources().getColor(R.color.secondary_text));
-        } else {
-            mSnoozeTextView.setTextColor(Color.WHITE);
-            mSnoozeTextView.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_snooze_white_24dp, 0, 0, 0
-            );
-        }
+        presenter.setSnoozeTextView(theme);
 
         mRemoveToDoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,32 +139,15 @@ public class ReminderFragment extends BaseFragment {
         editor.apply();
     }
 
-    private Date addTimeToDate(int mins) {
-        Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.MINUTE, mins);
-        return calendar.getTime();
-    }
-
     private int valueFromSpinner() {
-        switch (mSnoozeSpinner.getSelectedItemPosition()) {
-            case 0:
-                return 10;
-            case 1:
-                return 30;
-            case 2:
-                return 60;
-            default:
-                return 0;
-        }
+        return presenter.valueForSpinner(mSnoozeSpinner.getSelectedItemPosition());
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.toDoReminderDoneMenuItem:
-                Date date = addTimeToDate(valueFromSpinner());
+                Date date = presenter.addTimeToDate(valueFromSpinner());
                 mItem.setToDoDate(date);
                 mItem.setHasReminder(true);
                 Log.d("OskarSchindler", "Date Changed to: " + date);
@@ -186,17 +161,32 @@ public class ReminderFragment extends BaseFragment {
         }
     }
 
-
-    private void saveData() {
-        try {
-            storeRetrieveData.saveToFile(mToDoItems);
-        } catch (JSONException | IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public static ReminderFragment newInstance() {
         return new ReminderFragment();
+    }
+
+    private void saveData() {
+        presenter.saveData(storeRetrieveData, mToDoItems);
+    }
+
+    @Override
+    public void setPresenter(ReminderContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    public void setTheme(int theme) {
+        getActivity().setTheme(theme);
+    }
+
+    @Override
+    public void setSnoozeTextViewColor(int color) {
+        mSnoozeTextView.setTextColor(color);
+    }
+
+    @Override
+    public void setSnoozeTextViewDrawable() {
+        mSnoozeTextView.setCompoundDrawablesWithIntrinsicBounds(
+            R.drawable.ic_snooze_white_24dp, 0, 0, 0);
     }
 }
